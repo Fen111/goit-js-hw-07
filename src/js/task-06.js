@@ -1,23 +1,17 @@
+const input = document.querySelector('#validation-input');
+const correctNumberOfCharacters = Number(input.dataset.length);
 
-const input = document.querySelector('#validation-input')
-console.log(input)
+input.addEventListener('blur', checkLengthOfInput);
+input.addEventListener('focus', removeClass);
 
+function checkLengthOfInput(event) {
+  if (event.currentTarget.value.length === correctNumberOfCharacters) {
+    input.classList.add('valid');
+  } else {
+    input.classList.add('invalid');
+  }
+}
 
-input.addEventListener('blur', checkLengthOfInput)
-
-function checkLengthOfInput() {
-
-    const correctNumberOfCharacters = input.dataset.length
-
-
-    if (input.value.length != correctNumberOfCharacters) {
-    
-        input.classList.add('invalid')
-    }
-    
-    else {
-         input.classList.remove('invalid')
-         input.classList.add('valid')
-    }
-
+function removeClass(event) {
+  event.currentTarget.classList.remove('valid', 'invalid');
 }

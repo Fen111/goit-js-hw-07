@@ -1,14 +1,15 @@
+const input = document.getElementById('name-input');
+console.dir(input);
+const currentName = document.getElementById('name-output');
+console.dir(currentName);
 
-const input = document.querySelector('#name-input')
-console.dir(input)
-const currentName = document.querySelector('#name-output')
-console.log(currentName)
-
-input.addEventListener('input', onInputChange)
+input.addEventListener('input', onInputChange);
 
 function onInputChange(event) {
-    currentName.textContent = event.currentTarget.value
+  let userName = event.currentTarget.value;
+  if (userName === '') {
+    currentName.textContent = 'незнакомец';
+  } else {
+    currentName.textContent = userName;
+  }
 }
-
-
-
